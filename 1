@@ -1,0 +1,67 @@
+#MySQL Database configuration
+spring.jpa.generate-ddl=false
+spring.jpa.hibernate.hbm2ddl.auto=none
+spring.datasource.initialize=false
+#spring.datasource.url=jdbc:oracle:thin:@dmc-prod-db:1521/dmcproddb
+spring.datasource.url=jdbc:oracle:thin:@PRO-DBR-SCAN:1522/dmcprdb
+spring.datasource.username=CRESTELCEIR
+spring.datasource.password=CRESTELCEIR
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.Oracle12cDialect
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.show_sql=false
+#spring.main.allow-bean-definition-overriding=true
+
+spring.main.banner-mode=off
+#spring.main.lazy-initialization=true
+
+# Basic Configuration
+date.view.format=yyyy-MM-dd HH:mm
+
+#Thread COnfiguration
+thread-core-pool-size=10
+thread-max-pool-size=20
+process-sleep-time=20
+
+#RetryCount
+retryCount=3
+
+#server-id->server-id is 1 for main server and 2 for secondary server
+server-id=1
+
+#file copy method-possible values: ftp/scp
+copy-method=scp
+
+logging.config=file:/u01/ceirapp/CDR_copy/logback.xml
+#logging.level.org.file.filemover=INFO
+ 
+#output to a temp_folder/file
+#logging.file=/u02/ceirdata/CDR_copy_logs/log.log
+#logging.pattern.file=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+#logging.pattern.console=%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n
+
+
+cdrRecdServer=SIG1
+
+#config parameters for CP1 process
+#source_path=C:/Users/user
+#target_path=C:/Users/user/Videos
+source_path=/u02/ceirdata/raw_cdr  
+target_path=/u02/ceirdata/temp
+
+
+#config parameters for CP2 process
+cp2.copyLocation=remote
+cp2.target_path=/u02/ceirdata/input
+cp2.remote.target_path=/u02/ceirdata/input
+cp2.hostName=172.24.2.60
+cp2.serverPort=22022
+cp2.userName=ceirapp
+cp2.password=NFKFY*UYI(YT%
+cp2.timeout=2000
+cp2.session_timeout = 10000
+cp2.channel_timeout = 5000
+
+
